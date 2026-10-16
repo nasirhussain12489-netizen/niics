@@ -1,7 +1,21 @@
+import { createRequire } from 'node:module';
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc, serverTimestamp } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json' with { type: 'json' };
+
+const require = createRequire(import.meta.url);
+const firebaseConfig = require('../../firebase-applet-config.json') as {
+  projectId: string;
+  appId?: string;
+  apiKey: string;
+  authDomain: string;
+  firestoreDatabaseId?: string;
+  storageBucket?: string;
+  messagingSenderId?: string;
+  measurementId?: string;
+  oAuthClientId?: string;
+  recaptchaSiteKey?: string;
+};
 
 export const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
