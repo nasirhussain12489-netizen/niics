@@ -1,13 +1,11 @@
+
 {
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
     "api/index.ts": {
-      "includeFiles": [
-        "src/assets/images/**",
-        "dist/**"
-      ]
+      "includeFiles": "src/assets/images/**"
     }
   },
   "rewrites": [
