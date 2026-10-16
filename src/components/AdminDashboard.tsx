@@ -675,7 +675,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     if (!libraryList.length) {
       setBanner({
         type: 'error',
-        text: 'No library resources available to toggle yet.',
+        text: 'No library resources are available yet. Add a library item in the Library panel to enable the toggle.',
       });
       return;
     }

@@ -308,7 +308,53 @@ export let OFFLINE_PARTICIPANTS: Array<{
 
 export let OFFLINE_POSTERS: PosterRecord[] = [];
 export let OFFLINE_WEEKLY_RESULTS: WeeklyResultRecord[] = [];
-export let OFFLINE_LIBRARY_RESOURCES: LibraryResourceRecord[] = [];
+export let OFFLINE_LIBRARY_RESOURCES: LibraryResourceRecord[] = [
+  {
+    id: 1,
+    title: 'ILM Leadership Notes',
+    description: 'A quick reference guide for class leadership principles, discipline, and communication habits.',
+    author: 'ILM Team',
+    category: 'Notes',
+    libraryScope: 'COMMON',
+    fileUrl: '/uploads/demo-ilm-leadership-notes.pdf',
+    fileType: 'PDF',
+    fileSize: '1.4 MB',
+    contentPreview: 'Leadership begins with clarity, consistency, and service.',
+    publicationStatus: 'PUBLISHED',
+    uploadedByEmail: 'admin@ilm.edu.pk',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    title: 'Naat Delivery Guide',
+    description: 'A practical booklet focused on expression, timing, and respectful recitation for Naat performances.',
+    author: 'ILM Faculty',
+    category: 'Books',
+    libraryScope: 'COMMON',
+    fileUrl: '/uploads/demo-naat-delivery-guide.pdf',
+    fileType: 'PDF',
+    fileSize: '2.1 MB',
+    contentPreview: 'Maintain calm posture, controlled breath, and heartfelt expression.',
+    publicationStatus: 'PUBLISHED',
+    uploadedByEmail: 'admin@ilm.edu.pk',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    title: 'Speech Practice Workbook',
+    description: 'A workbook for building strong arguments, disciplined openings, and confident closing statements.',
+    author: 'ILM Team',
+    category: 'Research Papers',
+    libraryScope: 'U1',
+    fileUrl: '/uploads/demo-speech-practice-workbook.pdf',
+    fileType: 'PDF',
+    fileSize: '1.8 MB',
+    contentPreview: 'Structure your speech around purpose, proof, and audience connection.',
+    publicationStatus: 'HIDDEN',
+    uploadedByEmail: 'admin@ilm.edu.pk',
+    createdAt: new Date().toISOString(),
+  },
+];
 export let OFFLINE_FEED_POSTS: FeedPostRecord[] = [];
 
 export function upsertOfflineWeeklyResult(input: {
