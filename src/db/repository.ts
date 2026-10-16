@@ -1243,13 +1243,13 @@ export async function ensureRequestedAdminCredentials() {
         .insert(platformSettings)
         .values({
           settingKey: 'imgbbApiKey',
-          settingValue: '9551c6c91a49c0c4b17819b26554d812',
+          settingValue: '7443bf294f338b5a0c690e7de1fc2acd',
           updatedAt: new Date(),
         })
         .onConflictDoUpdate({
           target: platformSettings.settingKey,
           set: {
-            settingValue: '9551c6c91a49c0c4b17819b26554d812',
+            settingValue: '7443bf294f338b5a0c690e7de1fc2acd',
             updatedAt: new Date(),
           },
         });
