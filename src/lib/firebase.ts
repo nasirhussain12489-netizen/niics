@@ -1,10 +1,9 @@
-import { createRequire } from 'node:module';
+import firebaseConfigData from '../../firebase-applet-config.json';
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
-const require = createRequire(import.meta.url);
-const firebaseConfig = require('../../firebase-applet-config.json') as {
+const firebaseConfig = firebaseConfigData as {
   projectId: string;
   appId?: string;
   apiKey: string;

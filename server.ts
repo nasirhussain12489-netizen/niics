@@ -140,6 +140,33 @@ function ensureSqlDatabaseReady(_res: Response, _operation: string) {
   return true;
 }
 
+app.get('/api/system-status', (_req: Request, res: Response) => {
+  const sqlConfigured = isSqlConfigured();
+  const supabaseConfigured = hasSupabaseRuntimeConfig();
+  const firebaseConfigured = Boolean(
+    process.env.VITE_FIREBASE_API_KEY ||
+      process.env.VITE_FIREBASE_PROJECT_ID ||
+      process.env.VITE_FIREBASE_AUTH_DOMAIN ||
+      (process.env as Record<string, string | undefined>).FIREBASE_API_KEY
+  );
+
+  res.json({
+    ok: true,
+    mode: sqlConfigured ? 'sql' : supabaseConfigured ? 'supabase' : 'offline',
+    database: sqlConfigured ? 'postgres' : supabaseConfigured ? 'supabase' : 'offline',
+    authProvider: 'firebase-or-supabase',
+    firebaseConfigured,
+    supabaseConfigured,
+    sqlConfigured,
+    message:
+      sqlConfigured
+        ? 'PostgreSQL is configured.'
+        : supabaseConfigured
+          ? 'Supabase is configured and active.'
+          : 'No external database backend is configured; app is in offline demo mode.',
+  });
+});
+
 // ============================================================================
 // 1. PUBLIC WEBSITE ENDPOINTS (NO LOGIN REQUIRED, SANITIZED PUBLIC FIELDS)
 // ============================================================================
